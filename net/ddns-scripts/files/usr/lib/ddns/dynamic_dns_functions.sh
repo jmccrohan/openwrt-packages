@@ -85,14 +85,14 @@ get_current_ip()
 		do
 			if [ -z "$current_ip" ]
 			then
-				current_ip=$(echo $( wget -O - $addr 2>/dev/null) | grep -o "$ip_regex")
+				current_ip=$(echo $( busybox wget -O - $addr 2>/dev/null) | grep -o "$ip_regex")
 			fi
 		done
 
 		#here we hard-code the dyndns checkip url in case no url was specified
 		if [ -z "$current_ip" ]
 		then
-			current_ip=$(echo $( wget -O - http://checkip.dyndns.org 2>/dev/null) | grep -o "$ip_regex")
+			current_ip=$(echo $( busybox wget -O - http://checkip.dyndns.org 2>/dev/null) | grep -o "$ip_regex")
 		fi
 	fi
 

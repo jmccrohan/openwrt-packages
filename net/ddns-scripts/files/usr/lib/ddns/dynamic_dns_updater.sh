@@ -14,7 +14,7 @@
 service_id=$1
 if [ -z "$service_id" ]
 then
-	echo "ERRROR: You must specify a service id (the section name in the /etc/config/ddns file) to initialize dynamic DNS."
+	echo "ERROR: You must specify a service id (the section name in the /etc/config/ddns file) to initialize dynamic DNS."
 	return 1
 fi
 
@@ -109,7 +109,7 @@ then
 		retrieve_prog="${retrieve_prog}--capath $cacert "
 	fi
 else
-	retrieve_prog="/usr/bin/wget -O - ";
+	retrieve_prog="busybox wget -O - ";
 fi
 
 service_file="/usr/lib/ddns/services"

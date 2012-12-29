@@ -2,7 +2,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ddns-scripts
 PKG_VERSION:=1.0.0
-PKG_RELEASE:=21
+PKG_RELEASE:=22
 
 PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
 
@@ -14,6 +14,11 @@ define Package/ddns-scripts
         SUBMENU:=IP Addresses and Names
 	TITLE:=Dynamic DNS Scripts
 	PKGARCH:=all
+endef
+
+define Package/ddns-scripts/config
+	select BUSYBOX_CONFIG_WGET
+	select BUSYBOX_CONFIG_FEATURE_WGET_AUTHENTICATION
 endef
 
 define Package/ddns-scripts/description
