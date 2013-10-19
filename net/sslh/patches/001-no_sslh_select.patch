@@ -18,7 +18,7 @@
  echosrv: $(OBJS) echosrv.o
  	$(CC) $(CFLAGS) -o echosrv echosrv.o probe.o common.o $(LIBS)
  
-@@ -77,7 +73,7 @@ uninstall:
+@@ -75,7 +71,7 @@ uninstall:
  	update-rc.d sslh remove
  
  clean:
